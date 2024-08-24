@@ -4,7 +4,7 @@ import useCountryQuery from "../hooks/useCountryQuery";
 const CountryDetail = () => {
   const { countryData } = useCountryQuery();
   return (
-    <>
+    <div className="mt-20">
       {
         countryData?.map((country) => {
           return (
@@ -12,7 +12,7 @@ const CountryDetail = () => {
           )
         })
       }
-    </>
+    </div>
   );
 }
 

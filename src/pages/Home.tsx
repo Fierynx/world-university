@@ -1,6 +1,6 @@
 
-import Landing from "../components/Landing";
-import PopularCountries from "../components/PopularCountries";
+import Landing from "../components/home/Hero";
+import PopularCountries from "../components/home/PopularCountries";
 
 const Home = () => {
   return (
