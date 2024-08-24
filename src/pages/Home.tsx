@@ -1,5 +1,5 @@
 
-import Landing from "../components/home/Landing";
+import Landing from "../components/home/Hero";
 import PopularCountries from "../components/home/PopularCountries";
 
 const Home = () => {

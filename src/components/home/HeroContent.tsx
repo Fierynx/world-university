@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-const MainContent = () => {
+const HeroContent = () => {
   return (
     <div className="absolute pt-20 inset-0 flex flex-col items-center justify-center text-center text-white bg-black bg-opacity-60 p-4 gap-3">
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">Welcome to WorldUniversity</h1>
@@ -14,4 +14,4 @@ const MainContent = () => {
   );
 };
 
-export default MainContent;
+export default HeroContent;

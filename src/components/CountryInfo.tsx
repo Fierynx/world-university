@@ -2,7 +2,7 @@ import { Country } from "../lib/types";
 
 const CountryInfo = ({ country }: { country: Country }) => {
   return (
-    <div className="container mx-auto px-4 py-8 mt-20">
+    <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row gap-8">
         <div className="md:w-1/2">
           <img src={country.flags.png} alt={country.name.common} className="w-full h-96 object-cover" />
