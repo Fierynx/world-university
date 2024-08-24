@@ -1,15 +1,17 @@
-import { Outlet } from "react-router-dom";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import { Outlet } from 'react-router-dom';
+import Footer from '../components/Footer';
+import Navbar from '../components/Navbar';
 
 export const AppLayout = () => {
   return (
     <>
-      <Header />
-      <div className="container mx-auto px-4">
-        <Outlet /> 
+      <Navbar />
+      <div className="w-full h-full">
+        <Outlet />
       </div>
       <Footer />
     </>
   );
 };
+
+export default AppLayout;
