@@ -1,12 +1,19 @@
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import { AppLayout } from "./pages/AppLayout";
+import ContextPool from "./pages/ContextPool";
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <AppLayout />,
+    element: <ContextPool />,
     children: [
-      
+      {
+        path: '/',
+        element: <AppLayout/>,
+        children: [
+
+        ]
+      }
     ],
   },
 ]);
