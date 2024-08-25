@@ -14,7 +14,6 @@ const useCountryQuery = (filterBy?: URLTypes, data?: string | boolean) => {
   const countryQuery = useQuery({
     queryFn: () => {
       const getRoute = filterBy && routeFnList[filterBy];
-      console.log(getRoute && data ? getRoute(data) : "/all");
       return API.get<Country[]>(getRoute && data ? getRoute(data) : "/all");
     },
     queryKey: ["countries", filterBy, data],
