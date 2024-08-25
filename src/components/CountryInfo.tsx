@@ -13,9 +13,9 @@ const CountryInfo = ({ country }: { country: Country }) => {
           <p className="text-lg mt-2">Region: {country.region}</p>
           <p className="text-lg mt-2">Subregion: {country.subregion}</p>
           <p className="text-lg mt-2">Population: {country.population}</p>
-          <p className="text-lg mt-2">Languages: {country.languages ? Object.values(country.languages).join(', ') : "No languages"}</p>
-          <p className="text-lg mt-2">Currencies: {country.currencies ? Object.keys(country.currencies).join(', ') : "No currencies"}</p>
-          <p className="text-lg mt-2">Timezones: {country.timezones ? Object.values(country.timezones).join(', '): "No timezones"}</p>
+          <p className="text-lg mt-2">Languages: {country.languages ? Object.values(country.languages).join(', ') : "No language"}</p>
+          <p className="text-lg mt-2">Currencies: {country.currencies ? Object.keys(country.currencies).join(', ') : "No currency"}</p>
+          <p className="text-lg mt-2">Timezones: {country.timezones ? Object.values(country.timezones).join(', '): "No timezone"}</p>
         </div>
       </div>
     </div>
