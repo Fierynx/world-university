@@ -21,7 +21,7 @@ const router = createBrowserRouter([
             element: <HomePage />,
           },
           {
-            path: 'country-detail',
+            path: 'country-detail/:name',
             element: <CountryDetailPage/>
           },
           {

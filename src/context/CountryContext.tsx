@@ -3,7 +3,7 @@ import { Country } from '../lib/types';
 import useCountryQuery, { URLTypes } from '../hooks/useCountryQuery';
 
 type FilterParams = { 
-  type: URLTypes; 
+  type: URLTypes | undefined; 
   data: string | boolean;
 }
 
@@ -26,8 +26,9 @@ export const CountryProvider = ({ children }: { children: ReactNode }) => {
 
   const { countryData, countryQuery } = useCountryQuery(type, data);
   const [filteredData, setFilteredData] = useState<Country[]>([]);
+
   useEffect(() => {
-    if(countryData) {
+    if(countryData && !searchVal) {
       setFilteredData(countryData);
     }
 
@@ -41,7 +42,7 @@ export const CountryProvider = ({ children }: { children: ReactNode }) => {
 
   }, [searchVal, countryData]);
 
-  const setFilter = ({type, data}: {type: URLTypes; data: string | boolean}) => {
+  const setFilter = ({type, data}: {type: URLTypes | undefined; data: string | boolean}) => {
     setType(type);
     setData(data);
   }

@@ -10,11 +10,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#1E90FF',  //Dodger Blue
-        secondary: '#FFFFFF', //White
-        accent: '#FFD700',    //Goldenrod
-        textPrimary: '#333333', //Dark Gray
-        background: '#F5F5F5', //Light Gray
+        primary: '#1E90FF',  // Dodger Blue
+        secondary: '#FFFFFF', // White
+        accent: '#FFD700',    // Goldenrod
+        textPrimary: '#333333', // Dark Gray
+        background: '#F5F5F5', // Light Gray
       },
       animation: {
         'loop-scroll-left': 'loop-scroll-left 60s linear infinite',

@@ -1,37 +1,18 @@
-import CountryInfo from "../components/CountryInfo";
+import { useParams } from "react-router-dom";
 import { useCountry } from "../context/CountryContext";
+import CountryInfo from "../components/CountryInfo";
 
 const CountryDetailPage = () => {
-  const {countries, isLoading, setFilter, setSearchVal, searchVal} = useCountry();
+  const { name } = useParams<{ name: string }>();
+  const { countries, setFilter } = useCountry();
+  setFilter({ data: name ? name : "", type: "name" });
+  scrollTo(0, 0);
 
   return (
-    <div className="mt-20">
-      {isLoading && <div>Loading...</div> }
-      <input className="" type="text" onChange={(e) => setSearchVal(e.target.value)} value={searchVal}/>
-      <div className="flex items-center justify-center gap-4">
-
-        <div onClick={() => {
-          setFilter({data: "indonesian", type: "language"});
-        }}>Language</div>
-
-        <div onClick={() => {
-          setFilter({data: false, type: "independent" });
-        }}>Independent</div>
-
-        <div onClick={() => {
-          setFilter({data: "america", type: "region" });
-        }}>Region</div>
-        
-      </div>
-      {
-        countries?.map((country) => {
-          return (
-            <CountryInfo key={country.cca3} country={country}/>
-          )
-        })
-      }
+    <div>
+      {countries && <CountryInfo country={countries[0]} />}
     </div>
   );
-}
+};
 
 export default CountryDetailPage;
