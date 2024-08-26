@@ -19,23 +19,23 @@ const CountryContext = createContext<CountryContextProps | undefined>(undefined)
 
 export const CountryProvider = ({ children }: { children: ReactNode }) => {
 
-  const [type, setType] = useState<URLTypes | undefined>();
+  const [type, setType] = useState<URLTypes | undefined>(undefined);
   const [data, setData] = useState<boolean | string>("");
   
-  const [searchVal, setSearchVal] = useState("");
+  const [searchVal, setSearchVal] = useState<string>("");
 
   const { countryData, countryQuery } = useCountryQuery(type, data);
   const [filteredData, setFilteredData] = useState<Country[]>([]);
 
   useEffect(() => {
-    if(countryData && !searchVal) {
+    if(countryData) {
       setFilteredData(countryData);
     }
 
     if(searchVal && countryData) {
       setFilteredData(countryData.filter(country => {
         const countryName = country.name.common.toLowerCase();
-        const searchValue = searchVal.toLowerCase().replace(/\s+/g, '');
+        const searchValue = searchVal.toLowerCase();
         return countryName.includes(searchValue);
       }));
     }
