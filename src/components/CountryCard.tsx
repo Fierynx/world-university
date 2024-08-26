@@ -9,12 +9,7 @@ const CountryCard = ({ country }: { country: Country }) => {
         className="h-40 object-cover rounded-xl"
       />
       <div className="p-2">
-        <h2 className="text-xl font-bold mb-2">{country.name.common}</h2>
-        <p className="text-sm text-gray-600">Region: {country.region}</p>
-        <p className="text-sm text-gray-600">Capital: {country.capital}</p>
-        <p className="text-sm text-gray-600">
-          Population: {country.population.toLocaleString('en-US')}
-        </p>
+        <h2 className="text-xl font-bold mb-2 text-center">{country.name.common}</h2>
       </div>
     </div>
   );
