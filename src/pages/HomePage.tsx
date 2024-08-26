@@ -2,7 +2,7 @@
 import Hero from "../components/home/Hero";
 import PopularCountries from "../components/home/PopularCountries";
 
-const Home = () => {
+const HomePage = () => {
   return (
     <>
       <Hero />
@@ -11,4 +11,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomePage;

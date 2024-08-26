@@ -1,7 +1,7 @@
 import CountryInfo from "../components/CountryInfo";
 import { useCountry } from "../context/CountryContext";
 
-const CountryDetail = () => {
+const CountryDetailPage = () => {
   const {countries, isLoading, setFilter, setSearchVal, searchVal} = useCountry();
 
   return (
@@ -34,4 +34,4 @@ const CountryDetail = () => {
   );
 }
 
-export default CountryDetail;
+export default CountryDetailPage;
