@@ -6,6 +6,7 @@ const routeFnList = {
   region: (data: string | boolean) => `/region/${data}`,
   language: (data: string | boolean) => `/lang/${data}`,
   independent: (data: string | boolean) => `/independent?status=${data}`,
+  name: (data: string | boolean) => `/name/${data}`,
 }
 
 export type URLTypes = keyof typeof routeFnList;

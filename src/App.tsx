@@ -1,8 +1,11 @@
 import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import { AppLayout } from "./pages/AppLayout";
 import ContextPool from "./pages/ContextPool";
-import Home from "./pages/Home";
-import CountryDetail from "./pages/CountryDetail";
+import HomePage from "./pages/HomePage";
+import CountryDetailPage from "./pages/CountryDetailPage";
+import CountryFilterPage from "./pages/CountryFilterPage";
+import CountrySearchPage from "./pages/CountrySearchPage";
+import AboutPage from "./pages/AboutPage";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +17,24 @@ const router = createBrowserRouter([
         element: <AppLayout/>,
         children: [
           {
-            path: '/',
-            element: <Home />,
+            path: '',
+            element: <HomePage />,
           },
           {
-            path: '/country-detail',
-            element: <CountryDetail/>
+            path: 'country-detail/:cca3/:name',
+            element: <CountryDetailPage/>
+          },
+          {
+            path: 'country-search',
+            element: <CountrySearchPage/>
+          },
+          {
+            path: 'country-filter',
+            element: <CountryFilterPage/>
+          },
+          {
+            path: 'about',
+            element: <AboutPage/>
           },
         ]
       }

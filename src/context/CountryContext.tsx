@@ -3,7 +3,7 @@ import { Country } from '../lib/types';
 import useCountryQuery, { URLTypes } from '../hooks/useCountryQuery';
 
 type FilterParams = { 
-  type: URLTypes; 
+  type: URLTypes | undefined; 
   data: string | boolean;
 }
 
@@ -19,13 +19,14 @@ const CountryContext = createContext<CountryContextProps | undefined>(undefined)
 
 export const CountryProvider = ({ children }: { children: ReactNode }) => {
 
-  const [type, setType] = useState<URLTypes | undefined>();
+  const [type, setType] = useState<URLTypes | undefined>(undefined);
   const [data, setData] = useState<boolean | string>("");
   
-  const [searchVal, setSearchVal] = useState("");
+  const [searchVal, setSearchVal] = useState<string>("");
 
   const { countryData, countryQuery } = useCountryQuery(type, data);
   const [filteredData, setFilteredData] = useState<Country[]>([]);
+
   useEffect(() => {
     if(countryData) {
       setFilteredData(countryData);
@@ -34,14 +35,14 @@ export const CountryProvider = ({ children }: { children: ReactNode }) => {
     if(searchVal && countryData) {
       setFilteredData(countryData.filter(country => {
         const countryName = country.name.common.toLowerCase();
-        const searchValue = searchVal.toLowerCase().replace(/\s+/g, '');
+        const searchValue = searchVal.toLowerCase();
         return countryName.includes(searchValue);
       }));
     }
 
   }, [searchVal, countryData]);
 
-  const setFilter = ({type, data}: {type: URLTypes; data: string | boolean}) => {
+  const setFilter = ({type, data}: {type: URLTypes | undefined; data: string | boolean}) => {
     setType(type);
     setData(data);
   }

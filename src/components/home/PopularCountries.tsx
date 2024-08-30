@@ -3,55 +3,30 @@ import { useCountry } from "../../context/CountryContext";
 import { Country } from "../../lib/types";
 import InfiniteLoopCarousel from "./InfiniteLoopCarousel";
 
-const popularCountryNames = [
-  "Indonesia",
-  "United States",
-  "Japan",
-  "Germany",
-  "Brazil",
-  "Canada",
-  "Australia",
-  "India",
-  "China",
-  "Russia",
-  "France",
-  "United Kingdom",
-  "Italy",
-  "Spain",
-  "Mexico",
-  "South Korea",
-  "Turkey",
-  "Saudi Arabia",
-  "South Africa",
-  "Argentina",
-  "Nigeria",
-  "Egypt",
-  "Thailand",
-  "Vietnam",
-  "Philippines",
-  "Malaysia",
-  "Singapore",
-  "Netherlands",
-  "Sweden",
-  "Switzerland"
+const popularCountryCodes = [
+  "IDN", "USA", "JPN", "DEU", "BRA", "CAN", "AUS", "IND", "CHN", "RUS",
+  "FRA", "GBR", "ITA", "ESP", "MEX", "KOR", "TUR", "SAU", "ZAF", "ARG",
+  "NGA", "EGY", "THA", "VNM", "PHL", "MYS", "SGP", "NLD", "SWE", "CHE"
 ];
 
 const PopularCountries = () => {
-  const { countries } = useCountry();
+  const { countries, setFilter, setSearchVal } = useCountry();
   const [firstCountrySet, setFirstCountrySet] = useState<Country[]>([]);
   const [secondCountrySet, setSecondCountrySet] = useState<Country[]>([]);
 
   useEffect(() => {
+    setFilter({data: "", type: undefined});
+    setSearchVal("");
     if (countries) {
       const filteredCountries = countries.filter(country =>
-        popularCountryNames.includes(country.name.common)
+        popularCountryCodes.includes(country.cca3)
       );
       const half = Math.ceil(filteredCountries.length / 2);
       setFirstCountrySet(filteredCountries.slice(0, half));
       setSecondCountrySet(filteredCountries.slice(half));
     }
     console.log(countries);
-  }, [countries]);
+  }, [countries, setFilter, setSearchVal]);
 
   return (
     <div className="p-10 bg-background">
