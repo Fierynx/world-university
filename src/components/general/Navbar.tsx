@@ -23,9 +23,8 @@ const Navbar = () => {
       </div>
       <div className={`md:hidden bg-primary transition-all duration-300 overflow-hidden ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
         <Link to="/" className="block px-4 py-2 text-white hover:text-accent transition duration-300">Home</Link>
-        <Link to="/country-search" className="block px-4 py-2 text-white hover:text-accent transition duration-300">Country Search</Link>
-        <Link to="/country-filter" className="block px-4 py-2 text-white hover:text-accent transition duration-300">Country Filter</Link>
         <Link to="/about" className="block px-4 py-2 text-white hover:text-accent transition duration-300">About</Link>
+        <Link to="/country-filter-search" className="block px-4 py-2 text-white hover:text-accent transition duration-300">Explore Countries</Link>
       </div>
     </nav>
   );
