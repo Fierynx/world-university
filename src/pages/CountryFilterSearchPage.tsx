@@ -2,7 +2,7 @@ import { useCountry } from "../context/CountryContext";
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import useCountryQuery from "../hooks/useCountryQuery";
-import PopularCountryCard from "../components/general/PopularCountryCard";
+import CountryCard from "../components/general/CountryCard";
 
 type FilterType = "region" | "language" | "independent";
 
@@ -26,8 +26,6 @@ const CountryFilterSearchPage = () => {
   };
 
   useEffect(() => {
-    setCurrentPage(1);
-
     let options: string[] = [];
     if (selectedFilter === "language") {
       options = Array.from(new Set(
@@ -163,7 +161,7 @@ const CountryFilterSearchPage = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full max-w-screen-lg">
             {currentCountries?.map((country) => (
               <Link to={`/country-detail/${country.cca3}/${country.name.common}`} key={country.cca3}>
-                <PopularCountryCard key={country.cca3} country={country} />
+                <CountryCard key={country.cca3} country={country} />
               </Link>
             ))}
           </div>

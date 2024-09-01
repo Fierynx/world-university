@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Country } from "../../lib/types";
-import PopularCountryCard from "../general/PopularCountryCard";
+import CountryCard from "../general/CountryCard";
 
 const InfiniteLoopCarousel = ({firstCountrySet, secondCountrySet} : {
   firstCountrySet: Country[],
@@ -12,14 +12,14 @@ const InfiniteLoopCarousel = ({firstCountrySet, secondCountrySet} : {
           <div className="flex gap-6 animate-loop-scroll-left sm:animate-loop-scroll-left-sm md:animate-loop-scroll-left-md">
             {firstCountrySet.map((country) => (
               <Link to={`/country-detail/${country.cca3}/${country.name.common}`} key={country.cca3}>
-                <PopularCountryCard country={country}/>
+                <CountryCard country={country}/>
               </Link>
             ))}
           </div>
           <div className="flex gap-6 animate-loop-scroll-left sm:animate-loop-scroll-left-sm md:animate-loop-scroll-left-md">
             {firstCountrySet.map((country) => (
               <Link to={`/country-detail/${country.cca3}/${country.name.common}`} key={country.cca3}>
-                <PopularCountryCard country={country}/>
+                <CountryCard country={country}/>
               </Link>
             ))}
           </div>
@@ -28,14 +28,14 @@ const InfiniteLoopCarousel = ({firstCountrySet, secondCountrySet} : {
           <div className="flex gap-6 animate-loop-scroll-right sm:animate-loop-scroll-right-sm md:animate-loop-scroll-right-md">
             {secondCountrySet.map((country) => (
               <Link to={`/country-detail/${country.cca3}/${country.name.common}`} key={country.cca3}>
-                <PopularCountryCard country={country}/>
+                <CountryCard country={country}/>
               </Link>
             ))}
           </div>
           <div className="flex gap-6 animate-loop-scroll-right sm:animate-loop-scroll-right-sm md:animate-loop-scroll-right-md">
             {secondCountrySet.map((country) => (
               <Link to={`/country-detail/${country.cca3}/${country.name.common}`} key={country.cca3}>
-                <PopularCountryCard country={country}/>
+                <CountryCard country={country}/>
               </Link>
             ))}
           </div>

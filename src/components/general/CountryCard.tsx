@@ -1,6 +1,7 @@
-import { Country } from "../lib/types";
+import { Country } from "../../lib/types";
 
-const PopularCountryCard = ({ country }: { country: Country }) => {
+
+const CountryCard = ({ country }: { country: Country }) => {
   return (
     <div className="w-full sm:w-48 md:w-60 p-4 bg-gray-100 rounded-xl transform transition-all hover:-translate-y-2 duration-300 shadow-lg hover:shadow-2xl flex flex-col items-center justify-center">
       <img
@@ -15,4 +16,4 @@ const PopularCountryCard = ({ country }: { country: Country }) => {
   );
 };
 
-export default PopularCountryCard;
+export default CountryCard;
