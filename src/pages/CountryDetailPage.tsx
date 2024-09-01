@@ -1,25 +1,26 @@
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { useCountry } from "../context/CountryContext";
 import CountryInfo from "../components/CountryInfo";
-import { useEffect } from "react";
+import useCountryQuery from "../hooks/useCountryQuery";
 
-const CountryDetailPage = () => {
+const CountryDetailPage: React.FC = () => {
   const { cca3, name } = useParams<{ cca3: string; name: string }>();
-  const { countries, setFilter } = useCountry();
+  const { countryData, countryQuery } = useCountryQuery("name", name);
 
   useEffect(() => {
-    setFilter({ data: name ? name : "", type: "name" });
-    scrollTo(0, 0);
-  }, [name, setFilter]);
+    window.scrollTo(0, 0);
+  }, []);
 
-  const filteredCountry = countries?.find((country) => country.cca3 === cca3);
+  const filteredCountry = countryData?.find(
+    (country) => country.cca3 === cca3
+  );
 
   return (
     <div>
-      {filteredCountry ? (
-        <CountryInfo country={filteredCountry} />
-      ) : (
+      {countryQuery.isFetching ? (
         <p>Loading...</p>
+      ) : (
+        filteredCountry && <CountryInfo country={filteredCountry} />
       )}
     </div>
   );

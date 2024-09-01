@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Footer = () => {
   return (
     <footer className="bg-textPrimary text-secondary py-8">
@@ -9,16 +11,15 @@ const Footer = () => {
           </div>
           <div className="space-y-2">
             <h3 className="text-lg font-semibold">Quick Links</h3>
-            <a href="/" className="block hover:underline">Home</a>
-            <a href="/country-search" className="block hover:underline">Country Search</a>
-            <a href="/country-filter" className="block hover:underline">Country Filter</a>
-            <a href="/about" className="block hover:underline">About</a>
+            <Link to="/" className="block hover:underline">Home</Link>
+            <Link to="/about" className="block hover:underline">About</Link>
+            <Link to="/country-filter-search" className="block hover:underline">Explore Countries</Link>
           </div>
           <div className="space-y-2">
             <h3 className="text-lg font-semibold">Follow Us</h3>
-            <a href="https://facebook.com" className="block hover:underline">Facebook</a>
-            <a href="https://twitter.com" className="block hover:underline">Twitter</a>
-            <a href="https://instagram.com" className="block hover:underline">Instagram</a>
+            <Link to="https://facebook.com" className="block hover:underline">Facebook</Link>
+            <Link to="https://twitter.com" className="block hover:underline">Twitter</Link>
+            <Link to="https://instagram.com" className="block hover:underline">Instagram</Link>
           </div>
         </div>
       </div>

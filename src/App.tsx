@@ -3,8 +3,7 @@ import { AppLayout } from "./pages/AppLayout";
 import ContextPool from "./pages/ContextPool";
 import HomePage from "./pages/HomePage";
 import CountryDetailPage from "./pages/CountryDetailPage";
-import CountryFilterPage from "./pages/CountryFilterPage";
-import CountrySearchPage from "./pages/CountrySearchPage";
+import CountryFilterSearchPage from "./pages/CountryFilterSearchPage";
 import AboutPage from "./pages/AboutPage";
 
 const router = createBrowserRouter([
@@ -25,12 +24,8 @@ const router = createBrowserRouter([
             element: <CountryDetailPage/>
           },
           {
-            path: 'country-search',
-            element: <CountrySearchPage/>
-          },
-          {
-            path: 'country-filter',
-            element: <CountryFilterPage/>
+            path: 'country-filter-search',
+            element: <CountryFilterSearchPage/>
           },
           {
             path: 'about',

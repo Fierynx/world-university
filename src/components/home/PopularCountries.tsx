@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { useCountry } from "../../context/CountryContext";
 import { Country } from "../../lib/types";
 import InfiniteLoopCarousel from "./InfiniteLoopCarousel";
+import useCountryQuery from "../../hooks/useCountryQuery";
 
 const popularCountryCodes = [
   "IDN", "USA", "JPN", "DEU", "BRA", "CAN", "AUS", "IND", "CHN", "RUS",
@@ -10,23 +10,20 @@ const popularCountryCodes = [
 ];
 
 const PopularCountries = () => {
-  const { countries, setFilter, setSearchVal } = useCountry();
+  const { countryData } = useCountryQuery();
   const [firstCountrySet, setFirstCountrySet] = useState<Country[]>([]);
   const [secondCountrySet, setSecondCountrySet] = useState<Country[]>([]);
 
   useEffect(() => {
-    setFilter({data: "", type: undefined});
-    setSearchVal("");
-    if (countries) {
-      const filteredCountries = countries.filter(country =>
+    if (countryData) {
+      const filteredCountries = countryData.filter(country =>
         popularCountryCodes.includes(country.cca3)
       );
       const half = Math.ceil(filteredCountries.length / 2);
       setFirstCountrySet(filteredCountries.slice(0, half));
       setSecondCountrySet(filteredCountries.slice(half));
     }
-    console.log(countries);
-  }, [countries, setFilter, setSearchVal]);
+  }, [countryData]);
 
   return (
     <div className="p-10 bg-background">
