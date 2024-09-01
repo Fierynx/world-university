@@ -17,9 +17,9 @@ const Footer = () => {
           </div>
           <div className="space-y-2">
             <h3 className="text-lg font-semibold">Follow Us</h3>
-            <Link to="https://facebook.com" className="block hover:underline">Facebook</Link>
-            <Link to="https://twitter.com" className="block hover:underline">Twitter</Link>
-            <Link to="https://instagram.com" className="block hover:underline">Instagram</Link>
+            <Link to="https://facebook.com" target="_blank" className="block hover:underline">Facebook</Link>
+            <Link to="https://twitter.com" target="_blank" className="block hover:underline">Twitter</Link>
+            <Link to="https://instagram.com" target="_blank" className="block hover:underline">Instagram</Link>
           </div>
         </div>
       </div>

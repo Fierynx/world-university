@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import useCountryQuery from "../hooks/useCountryQuery";
+import CountryDetailSkeleton from "../components/skeleton/CountryDetailSkeleton";
 
 const CountryDetailPage = () => {
   const { cca3, name } = useParams<{ cca3: string; name: string }>();
@@ -18,16 +19,13 @@ const CountryDetailPage = () => {
   return (
     <div className="min-h-screen bg-white py-10">
       {countryQuery.isFetching ? (
-        <div className="flex justify-center items-center h-full">
-          <p className="text-2xl font-semibold text-gray-700">Loading...</p>
-        </div>
-      ) : (
+        <CountryDetailSkeleton/>
+        ) : (
         filteredCountry && (
-          <div className="container mx-auto bg-gray-100 shadow-lg rounded-lg p-6">
+          <div className="container mx-auto bg-slate-100 shadow-lg rounded-lg p-6">
             <button
               onClick={() => navigate(-1)} 
-              className="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition"
-            >
+              className="mb-4 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
               Back
             </button>
             <div className="flex flex-col md:flex-row gap-8">
@@ -35,8 +33,7 @@ const CountryDetailPage = () => {
                 <img
                   src={filteredCountry.flags.png}
                   alt={filteredCountry.name.common}
-                  className="w-full h-96 object-cover rounded-lg"
-                />
+                  className="w-full h-96 object-cover rounded-lg"/>
               </div>
               <div className="md:w-1/2">
                 <h1 className="text-4xl font-bold mb-4">{filteredCountry.name.common}</h1>
@@ -53,9 +50,7 @@ const CountryDetailPage = () => {
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${filteredCountry.latlng[0]},${filteredCountry.latlng[1]}`}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-500 underline"
-                  >
+                    className="text-blue-500 underline">
                     Open in Google Maps
                   </a>
                 </div>
