@@ -99,7 +99,7 @@ const CountryFilterSearchPage = () => {
   
           <CountryList currentCountries={currentCountries} indexOfFirstCountry={indexOfFirstCountry} indexOfLastCountry={indexOfLastCountry} totalCountries={countries?.length ?? 0} />
           {
-            currentCountries && currentCountries?.length >= countriesPerPage && <Pagination totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
+            countries && countries?.length >= countriesPerPage && <Pagination totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
           }
         </div>
       )}
