@@ -32,7 +32,7 @@ export type Country = {
   region: string;
   subregion: string;
   languages: {
-    [key: string]: string;
+      [key: string]: string;
   };
   translations: {
     [key: string]: {

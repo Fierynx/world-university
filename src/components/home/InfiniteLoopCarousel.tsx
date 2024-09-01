@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import CountryCard from "../CountryCard";
 import { Country } from "../../lib/types";
+import CountryCard from "../general/CountryCard";
 
 const InfiniteLoopCarousel = ({firstCountrySet, secondCountrySet} : {
   firstCountrySet: Country[],
